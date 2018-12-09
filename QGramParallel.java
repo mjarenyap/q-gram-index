@@ -2,12 +2,23 @@ import java.util.Scanner;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Semaphore;
+import java.io.*;
 
 public class QGramParallel{
 	static Semaphore semaphore, sTasks;
-	static String testString = "GGGGGGAGCT";
-	static int nTasks = 10;
+	// static String testString = "GGGGGGAGCT";
+	static String testString;
+	static int nTasks = 2;
 	static HashMap<String, Integer> qGramTable;
+
+	public static void loadFile() throws Exception{
+		File file = new File("data/Ndna_100.txt");
+		BufferedReader br = new BufferedReader(new FileReader(file));
+
+		String st;
+		while((st = br.readLine()) != null)
+			testString = st;
+	}
 
 	public static HashMap<String, Integer> getQGramSubstrings(int q) {
 		HashMap<String, Integer> qGrams = new HashMap<String, Integer>();
@@ -83,6 +94,10 @@ public class QGramParallel{
 	}
 
 	public static void main(String[] args) {
+		try{
+			loadFile();
+		} catch(Exception e){}
+
 		semaphore = new Semaphore(0, true);
 		sTasks = new Semaphore(0, true);
 		// Generate q-grams and directory table
@@ -109,23 +124,5 @@ public class QGramParallel{
 			System.out.println(startTime);
 			System.out.println(endTime - startTime);
 		} catch(InterruptedException e){}
-
-		/*
-		// Generate position table
-		int[] posTable = new int[testString.length()-1];
-		for (int i = 0; i < posTable.length; i++)
-			posTable[i] = 0;
-		*/
-
-		// qGramIndex(qGramTable, posTable, testString);
-		// System.out.println("Test String = " + testString);
-
-		/*
-		for (String key : qGramTable.keySet())
-			System.out.println(key + " - " + qGramTable.get(key));
-
-		for (int i = 0; i < posTable.length; i++)
-			System.out.print(posTable[i] + " ");
-		*/
 	}
 }

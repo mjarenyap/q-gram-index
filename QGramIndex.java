@@ -2,8 +2,20 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.io.*;
 
 public class QGramIndex {
+	static String testString;
+
+	public static void loadFile() throws Exception{
+		File file = new File("data/Ndna_100.txt");
+		BufferedReader br = new BufferedReader(new FileReader(file));
+
+		String st;
+		while((st = br.readLine()) != null)
+			testString = st;
+	}
+
 	public static HashMap<String, Integer> getQGramSubstrings(int q) {
 		HashMap<String, Integer> qGrams = new HashMap<String, Integer>();
 		String[] letters = {"A", "C", "G", "T"};
@@ -43,12 +55,15 @@ public class QGramIndex {
 	}
 
 	public static void main(String[] args) {
+		try{
+			loadFile();
+		} catch(Exception e){}
+
 		// Generate q-grams and directory table
 		HashMap<String, Integer> qGramTable = getQGramSubstrings(2);
 
 		// Get test string
 		// String testString = "ACAGGGCA";
-		String testString = "GGGGGGAGCT";
 
 		// Generate position table
 		int[] posTable = new int[testString.length()-1];

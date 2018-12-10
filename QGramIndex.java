@@ -25,7 +25,7 @@ public class QGramIndex {
 			temp += letters[i];
 			for(int j = 0; j < 4; j++){
 				temp += letters[j];
-				//System.out.println("Temp = " + temp);
+				System.out.println("Temp = " + temp);
 				qGrams.put(temp, 0);
 				temp = temp.substring(0, 1);
 			}
@@ -72,8 +72,6 @@ public class QGramIndex {
 
 		final long startTime = System.currentTimeMillis();
 		qGramIndex(qGramTable, posTable, testString);
-		final long endTime = System.currentTimeMillis();
-		System.out.println("Time Elapsed: " + (endTime - startTime));
 
 		System.out.println("Test String = " + testString);
 		for (String key : qGramTable.keySet())
@@ -81,5 +79,9 @@ public class QGramIndex {
 
 		for (int i = 0; i < posTable.length; i++)
 			System.out.print(posTable[i] + " ");
+		final long endTime = System.currentTimeMillis();
+		System.out.println();
+		System.out.println(startTime);
+		System.out.println(endTime - startTime);
 	}
 }

@@ -5,18 +5,10 @@ import java.util.Iterator;
 import java.util.concurrent.Semaphore;
 import java.io.*;
 
-<<<<<<< HEAD
 public class QGramParallel {
 	static Semaphore semIndex, semKey;
 	static int sharedPosPointer, nThreads = 2;
 	static String testString, sharedDirPointer, sharedKey;
-=======
-public class QGramParallel{
-	static Semaphore semaphore, sTasks;
-	// static String testString = "GGGGGGAGCT";
-	static String testString;
-	static int nTasks = 10;
->>>>>>> origin/master
 	static HashMap<String, Integer> qGramTable;
 	static Iterator sharedMapIterator;
 	static int[] posTable;
@@ -48,7 +40,6 @@ public class QGramParallel{
 	}
 
 	static class Indexer extends Thread {
-<<<<<<< HEAD
 		private Semaphore semMap, semKey;
 		private String testString, threadName;
 		private String testKey;
@@ -58,33 +49,6 @@ public class QGramParallel{
 			this.semKey = semKey;
 			this.testString = testString;
 			this.threadName = threadName;
-=======
-		private int num;
-		private String sub;
-		public double exeTime;
-		public Indexer(int num, String sub){
-			this.num = num;
-			this.sub = sub;
-		}
-
-		public void run(){
-			// Generate position table
-			int[] posTable = new int[sub.length()-1];
-			for (int i = 0; i < posTable.length; i++)
-				posTable[i] = 0;
-			HashMap<String, Integer> qgTable = getQGramSubstrings(2);
-			final long startTime = System.currentTimeMillis();
-			qGramIndex(qgTable, posTable, sub);
-
-			try{
-				semaphore.acquire(1);
-				final long endTime = System.currentTimeMillis();
-				printTables(posTable, qgTable);
-				exeTime = (double)endTime - (double)startTime;
-				semaphore.release(1);
-				sTasks.release(1);
-			} catch(InterruptedException e){}
->>>>>>> origin/master
 		}
 
 		public void run() {
@@ -138,7 +102,6 @@ public class QGramParallel{
 		semKey = new Semaphore(1, true);
 		sharedPosPointer = 0;
 		qGramTable = getQGramSubstrings(2);
-<<<<<<< HEAD
 		sharedMapIterator = qGramTable.keySet().iterator();
 		posTable = new int[testString.length()-1];
 		for(int i=0;i<posTable.length;i++)
@@ -170,33 +133,5 @@ public class QGramParallel{
 
 		for (int i = 0; i < posTable.length; i++)
 			System.out.print(posTable[i] + " ");
-=======
-		int stringAmount = testString.length() / nTasks;
-		int startIndex = 0;
-		int endIndex = stringAmount;
-		Indexer[] ind = new Indexer[nTasks];
-
-		final long startTime = System.currentTimeMillis();
-		semaphore.release(1);
-		for(int i = 0; i < nTasks; i++){
-			Indexer indexer = new Indexer(i, testString.substring(startIndex, endIndex));
-			ind[i] = indexer;
-			indexer.start();
-
-			startIndex = endIndex;
-			if(i + 1 == nTasks - 1)
-				endIndex = testString.length();
-			else endIndex += stringAmount;
-		}
-
-		try{
-			sTasks.acquire(nTasks);
-			final long endTime = System.currentTimeMillis();
-			System.out.println(endTime - startTime);
-			System.out.println("-----");
-			for(int i = 0; i < nTasks; i++)
-				System.out.println(i + ": " + ind[i].exeTime + "s");
-		} catch(InterruptedException e){}
->>>>>>> origin/master
 	}
 }

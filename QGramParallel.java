@@ -14,7 +14,7 @@ public class QGramParallel {
 	static int[] posTable;
 
 	public static void loadFile() throws Exception{
-		File file = new File("data/Ndna_100K.txt");
+		File file = new File("data/Ndna_1M.txt");
 		BufferedReader br = new BufferedReader(new FileReader(file));
 
 		String st;
@@ -32,9 +32,13 @@ public class QGramParallel {
 			temp += letters[i];
 			for(int j = 0; j < 4; j++){
 				temp += letters[j];
-				// System.out.println("Temp = " + temp);
-				qGrams.put(temp, 0);
-				temp = temp.substring(0, 1);
+				for (int k=0;k<4;k++) {
+					temp += letters[k];
+					qGrams.put(temp, 0);
+					//System.out.println("Temp = " + temp);
+					temp = temp.substring(0, 2);
+				}
+				temp = temp.substring(0,1);
 			}
 		}
 		return qGrams;
@@ -75,20 +79,20 @@ public class QGramParallel {
 					semDir.acquire(); // acquire the lock
 					//System.out.println(threadName + " gets a permit for dir.");
 
-					for(int i=0;i<testString.length()-1;i++) {
+					for(int i=0;i<testString.length()-2;i++) {
 						if(newPosIndex) {
 							qGramTable.put(testKey, sharedPosPointer);
 							newPosIndex = false;
 						}
 
-						if(testString.substring(i, i+2).equals(testKey)) {
+						if(testString.substring(i, i+3).equals(testKey)) {
 							try {
 								//System.out.println(threadName + " is waiting for a permit for index."); 
 								semMap.acquire(); // acquire the lock
 								//System.out.println(threadName + " gets a permit for index.");
 
 								posTable[sharedPosPointer] = i;
-								if (sharedPosPointer < testString.length()-1)
+								if (sharedPosPointer < testString.length()-2)
 									sharedPosPointer += 1; // updated position table pointer
 							} catch (InterruptedException exc) { 
 		                    	System.out.println(exc); 
@@ -152,7 +156,7 @@ public class QGramParallel {
 		for (String key : qGramTable.keySet())
 			System.out.println(key + " - " + qGramTable.get(key));
 
-		for (int i = 0; i < posTable.length; i++)
-			System.out.print(posTable[i] + " ");
+		//for (int i = 0; i < posTable.length; i++)
+			//System.out.print(posTable[i] + " ");
 	}
 }

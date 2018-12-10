@@ -8,7 +8,7 @@ public class QGramIndex {
 	static String testString;
 
 	public static void loadFile() throws Exception{
-		File file = new File("data/Ndna_100K.txt");
+		File file = new File("data/Ndna_1M.txt");
 		BufferedReader br = new BufferedReader(new FileReader(file));
 
 		String st;
@@ -26,12 +26,15 @@ public class QGramIndex {
 			temp += letters[i];
 			for(int j = 0; j < 4; j++){
 				temp += letters[j];
-				//System.out.println("Temp = " + temp);
-				qGrams.put(temp, 0);
+				// System.out.println("Temp = " + temp);
+				for (int k=0;k<4;k++) {
+					temp += letters[k];
+					qGrams.put(temp, 0);
+					temp = temp.substring(0, 2);
+				}
 				temp = temp.substring(0, 1);
 			}
 		}
-
 		return qGrams;
 	}
 
@@ -40,7 +43,7 @@ public class QGramIndex {
 		// Traverse to each qGram
 		for (String key : dirTable.keySet()) {
 			boolean newPosIndex = true;
-			for(int i = 0; i < genes.length() - 1; i++) {	// Traverse through the string
+			for(int i = 0; i < genes.length() - 2; i++) {	// Traverse through the string
 				// Get every pair of string na magkatabi (I forgot the word)
 				// Compare it with the current key
 				if (newPosIndex) {	// You should only update directory table once = kung saan yung start ng portion niya sa pointer table
@@ -48,7 +51,7 @@ public class QGramIndex {
 					newPosIndex = false; // prevent from going in again
 				}	
 
-				if (genes.substring(i, i+2).equals(key)) {
+				if (genes.substring(i, i+3).equals(key)) {
 					posTable[posTablePointer] = i;	// Ilagay sa pointerTable yung index kung saan yung qGram
 					posTablePointer++;	// If yes, update pointer
 				} 			
@@ -81,7 +84,7 @@ public class QGramIndex {
 		for (String key : qGramTable.keySet())
 			System.out.println(key + " - " + qGramTable.get(key));
 
-		for (int i = 0; i < posTable.length; i++)
-			System.out.print(posTable[i] + " ");
+		//for (int i = 0; i < posTable.length; i++)
+			//System.out.print(posTable[i] + " ");
 	}
 }

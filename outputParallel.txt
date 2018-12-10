@@ -1,0 +1,313 @@
+B is waiting for a permit for index.
+C is waiting for a permit for index.
+A is waiting for a permit for index.
+D is waiting for a permit for index.
+B gets a permit for index.
+B releases the permit for index.
+B is waiting for a permit for index.
+C gets a permit for index.
+C releases the permit for index.
+C is waiting for a permit for index.
+A gets a permit for index.
+A releases the permit for index.
+A is waiting for a permit for index.
+D gets a permit for index.
+D releases the permit for index.
+D is waiting for a permit for index.
+B gets a permit for index.
+B releases the permit for index.
+B is waiting for a permit for index.
+C gets a permit for index.
+C releases the permit for index.
+C is waiting for a permit for index.
+A gets a permit for index.
+A releases the permit for index.
+A is waiting for a permit for index.
+D gets a permit for index.
+D releases the permit for index.
+D is waiting for a permit for index.
+B gets a permit for index.
+B releases the permit for index.
+B is waiting for a permit for index.
+C gets a permit for index.
+C releases the permit for index.
+C is waiting for a permit for index.
+A gets a permit for index.
+A releases the permit for index.
+A is waiting for a permit for index.
+D gets a permit for index.
+D releases the permit for index.
+D is waiting for a permit for index.
+B gets a permit for index.
+B releases the permit for index.
+C gets a permit for index.
+B is waiting for a permit for index.
+C releases the permit for index.
+C is waiting for a permit for index.
+A gets a permit for index.
+A releases the permit for index.
+D gets a permit for index.
+A is waiting for a permit for index.
+D releases the permit for index.
+D is waiting for a permit for index.
+B gets a permit for index.
+B releases the permit for index.
+B is waiting for a permit for index.
+C gets a permit for index.
+C releases the permit for index.
+C is waiting for a permit for index.
+A gets a permit for index.
+A releases the permit for index.
+A is waiting for a permit for index.
+D gets a permit for index.
+D releases the permit for index.
+D is waiting for a permit for index.
+B gets a permit for index.
+B releases the permit for index.
+B is waiting for a permit for index.
+C gets a permit for index.
+C releases the permit for index.
+C is waiting for a permit for index.
+A gets a permit for index.
+A releases the permit for index.
+A is waiting for a permit for index.
+D gets a permit for index.
+D releases the permit for index.
+D is waiting for a permit for index.
+B gets a permit for index.
+B releases the permit for index.
+B is waiting for a permit for index.
+C gets a permit for index.
+C releases the permit for index.
+C is waiting for a permit for index.
+A gets a permit for index.
+A releases the permit for index.
+D gets a permit for index.
+A is waiting for a permit for index.
+D releases the permit for index.
+D is waiting for a permit for index.
+B gets a permit for index.
+B releases the permit for index.
+B is waiting for a permit for index.
+C gets a permit for index.
+C releases the permit for index.
+C is waiting for a permit for index.
+A gets a permit for index.
+A releases the permit for index.
+A is waiting for a permit for index.
+D gets a permit for index.
+D releases the permit for index.
+D is waiting for a permit for index.
+B gets a permit for index.
+B releases the permit for index.
+B is waiting for a permit for index.
+C gets a permit for index.
+C releases the permit for index.
+C is waiting for a permit for index.
+A gets a permit for index.
+A releases the permit for index.
+A is waiting for a permit for index.
+D gets a permit for index.
+D releases the permit for index.
+D is waiting for a permit for index.
+B gets a permit for index.
+B releases the permit for index.
+B is waiting for a permit for index.
+C gets a permit for index.
+C releases the permit for index.
+C is waiting for a permit for index.
+A gets a permit for index.
+A releases the permit for index.
+A is waiting for a permit for index.
+D gets a permit for index.
+D releases the permit for index.
+D is waiting for a permit for index.
+B gets a permit for index.
+B releases the permit for index.
+C gets a permit for index.
+B is waiting for a permit for index.
+C releases the permit for index.
+A gets a permit for index.
+C is waiting for a permit for index.
+A releases the permit for index.
+A is waiting for a permit for index.
+D gets a permit for index.
+D releases the permit for index.
+D is waiting for a permit for index.
+B gets a permit for index.
+B releases the permit for index.
+B is waiting for a permit for index.
+C gets a permit for index.
+C releases the permit for index.
+C is waiting for a permit for index.
+A gets a permit for index.
+A releases the permit for index.
+A is waiting for a permit for index.
+D gets a permit for index.
+D releases the permit for index.
+D is waiting for a permit for index.
+B gets a permit for index.
+B releases the permit for index.
+B is waiting for a permit for index.
+C gets a permit for index.
+C releases the permit for index.
+A gets a permit for index.
+C is waiting for a permit for index.
+A releases the permit for index.
+A is waiting for a permit for index.
+D gets a permit for index.
+D releases the permit for index.
+D is waiting for a permit for index.
+B gets a permit for index.
+B releases the permit for index.
+B is waiting for a permit for index.
+C gets a permit for index.
+C releases the permit for index.
+C is waiting for a permit for index.
+A gets a permit for index.
+A releases the permit for index.
+A is waiting for a permit for index.
+D gets a permit for index.
+D releases the permit for index.
+D is waiting for a permit for index.
+B gets a permit for index.
+B releases the permit for index.
+B is waiting for a permit for index.
+C gets a permit for index.
+C releases the permit for index.
+C is waiting for a permit for index.
+A gets a permit for index.
+A releases the permit for index.
+D gets a permit for index.
+A is waiting for a permit for index.
+D releases the permit for index.
+D is waiting for a permit for index.
+B gets a permit for index.
+B releases the permit for index.
+B is waiting for a permit for index.
+C gets a permit for index.
+C releases the permit for index.
+C is waiting for a permit for index.
+A gets a permit for index.
+A releases the permit for index.
+A is waiting for a permit for index.
+D gets a permit for index.
+D releases the permit for index.
+D is waiting for a permit for index.
+B gets a permit for index.
+B releases the permit for index.
+B is waiting for a permit for index.
+C gets a permit for index.
+C releases the permit for index.
+C is waiting for a permit for index.
+A gets a permit for index.
+A releases the permit for index.
+A is waiting for a permit for index.
+D gets a permit for index.
+D releases the permit for index.
+D is waiting for a permit for index.
+B gets a permit for index.
+B releases the permit for index.
+B is waiting for a permit for index.
+C gets a permit for index.
+C releases the permit for index.
+C is waiting for a permit for index.
+A gets a permit for index.
+A releases the permit for index.
+A is waiting for a permit for index.
+D gets a permit for index.
+D releases the permit for index.
+D is waiting for a permit for index.
+B gets a permit for index.
+B releases the permit for index.
+B is waiting for a permit for index.
+C gets a permit for index.
+C releases the permit for index.
+C is waiting for a permit for index.
+A gets a permit for index.
+A releases the permit for index.
+A is waiting for a permit for index.
+D gets a permit for index.
+D releases the permit for index.
+D is waiting for a permit for index.
+B gets a permit for index.
+B releases the permit for index.
+B is waiting for a permit for index.
+C gets a permit for index.
+C releases the permit for index.
+C is waiting for a permit for index.
+A gets a permit for index.
+A releases the permit for index.
+A is waiting for a permit for index.
+D gets a permit for index.
+D releases the permit for index.
+D is waiting for a permit for index.
+B gets a permit for index.
+B releases the permit for index.
+B is waiting for a permit for index.
+C gets a permit for index.
+C releases the permit for index.
+C is waiting for a permit for index.
+A gets a permit for index.
+A releases the permit for index.
+A is waiting for a permit for index.
+D gets a permit for index.
+D releases the permit for index.
+D is waiting for a permit for index.
+B gets a permit for index.
+B releases the permit for index.
+B is waiting for a permit for index.
+C gets a permit for index.
+C releases the permit for index.
+C is waiting for a permit for index.
+A gets a permit for index.
+A releases the permit for index.
+A is waiting for a permit for index.
+D gets a permit for index.
+D releases the permit for index.
+D is waiting for a permit for index.
+B gets a permit for index.
+B releases the permit for index.
+B is waiting for a permit for index.
+C gets a permit for index.
+C releases the permit for index.
+C is waiting for a permit for index.
+A gets a permit for index.
+A releases the permit for index.
+D gets a permit for index.
+D releases the permit for index.
+B gets a permit for index.
+B releases the permit for index.
+C gets a permit for index.
+C releases the permit for index.
+C is waiting for a permit for index.
+C gets a permit for index.
+C releases the permit for index.
+C is waiting for a permit for index.
+C gets a permit for index.
+C releases the permit for index.
+C is waiting for a permit for index.
+C gets a permit for index.
+C releases the permit for index.
+C is waiting for a permit for index.
+C gets a permit for index.
+C releases the permit for index.
+Time Elapsed: 13
+Test String = ACAGGGAGCATGGCGGCATGTCTGTTACGGGTTGGGATCTAAATTGGCTTCTTTGCGATCGAGGTGCGGGCCTTAACCGAAGCGCTAGTTGGATATAGAT
+AA - 13
+CC - 7
+GG - 52
+TT - 30
+AC - 19
+CG - 41
+AG - 43
+GT - 50
+TA - 65
+TC - 59
+CT - 74
+AT - 80
+TG - 91
+GA - 93
+GC - 98
+CA - 92
+0 40 24 70 3 41 31 76 4 74 43 0 11 79 48 26 14 13 51 75 28 27 52 2 29 55 72 6 33 59 88 61 34 66 19 80 45 77 23 86 62 82 30 96 67 25 63 20 68 39 87 37 90 73 21 49 9 85 38 58 17 93 47 10 36 95 50 18 42 5 71 22 57 35 84 32 92 56 7 44 94 60 12 53 1 78 15 64 8 91 46 89 16 97 54 65 69 81 83 

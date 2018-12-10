@@ -1,0 +1,152 @@
+A is waiting for a permit on keys.
+D is waiting for a permit on keys.
+C is waiting for a permit on keys.
+B is waiting for a permit on keys.
+D gets a permit on keys.
+A gets a permit on keys.
+A releases the permit for keys.
+D releases the permit for keys.
+Thread Name: D Key - AA
+D is waiting for a permit for directory.
+D gets a permit for dir.
+Thread Name: A Key - CC
+B gets a permit on keys.
+B releases the permit for keys.
+Thread Name: B Key - GG
+B is waiting for a permit for directory.
+C gets a permit on keys.
+D releases the permit for dir.
+C releases the permit for keys.
+A is waiting for a permit for directory.
+Thread Name: C Key - TT
+D is waiting for a permit on keys.
+B gets a permit for dir.
+D gets a permit on keys.
+D releases the permit for keys.
+Thread Name: D Key - AC
+C is waiting for a permit for directory.
+D is waiting for a permit for directory.
+B releases the permit for dir.
+B is waiting for a permit for index.
+B gets a permit for index.
+B releases the permit for index.
+B is waiting for a permit for index.
+B gets a permit for index.
+B releases the permit for index.
+A gets a permit for dir.
+B is waiting for a permit on keys.
+A releases the permit for dir.
+B gets a permit on keys.
+C gets a permit for dir.
+A is waiting for a permit on keys.
+C releases the permit for dir.
+C is waiting for a permit on keys.
+B releases the permit for keys.
+Thread Name: B Key - CG
+B is waiting for a permit for directory.
+D gets a permit for dir.
+D releases the permit for dir.
+A gets a permit on keys.
+A releases the permit for keys.
+Thread Name: A Key - AG
+A is waiting for a permit for directory.
+D is waiting for a permit for index.
+B gets a permit for dir.
+B releases the permit for dir.
+C gets a permit on keys.
+A gets a permit for dir.
+B is waiting for a permit on keys.
+B gets a permit on keys.
+B releases the permit for keys.
+Thread Name: B Key - TA
+B is waiting for a permit for directory.
+D gets a permit for index.
+D releases the permit for index.
+A releases the permit for dir.
+C releases the permit for keys.
+B gets a permit for dir.
+A is waiting for a permit for index.
+D is waiting for a permit on keys.
+A gets a permit for index.
+B releases the permit for dir.
+Thread Name: C Key - GT
+C is waiting for a permit for directory.
+B is waiting for a permit on keys.
+A releases the permit for index.
+A is waiting for a permit on keys.
+D gets a permit on keys.
+D releases the permit for keys.
+Thread Name: D Key - TC
+B gets a permit on keys.
+B releases the permit for keys.
+Thread Name: B Key - CT
+B is waiting for a permit for directory.
+C gets a permit for dir.
+C releases the permit for dir.
+C is waiting for a permit on keys.
+D is waiting for a permit for directory.
+A gets a permit on keys.
+A releases the permit for keys.
+C gets a permit on keys.
+B gets a permit for dir.
+B releases the permit for dir.
+C releases the permit for keys.
+Thread Name: A Key - AT
+A is waiting for a permit for directory.
+Thread Name: C Key - TG
+C is waiting for a permit for directory.
+D gets a permit for dir.
+B is waiting for a permit on keys.
+D releases the permit for dir.
+B gets a permit on keys.
+A gets a permit for dir.
+D is waiting for a permit on keys.
+A releases the permit for dir.
+B releases the permit for keys.
+C gets a permit for dir.
+A is waiting for a permit on keys.
+D gets a permit on keys.
+D releases the permit for keys.
+Thread Name: D Key - GC
+D is waiting for a permit for directory.
+A gets a permit on keys.
+A releases the permit for keys.
+Thread Name: A Key - CA
+A is waiting for a permit for directory.
+C releases the permit for dir.
+Thread Name: B Key - GA
+B is waiting for a permit for directory.
+D gets a permit for dir.
+D releases the permit for dir.
+D is waiting for a permit for index.
+D gets a permit for index.
+D releases the permit for index.
+A gets a permit for dir.
+A releases the permit for dir.
+A is waiting for a permit for index.
+B gets a permit for dir.
+A gets a permit for index.
+A releases the permit for index.
+B releases the permit for dir.
+A is waiting for a permit for index.
+A gets a permit for index.
+A releases the permit for index.
+Time Elapsed: 8
+Test String = ACAGGGCA
+AA - 0
+CC - 2
+GG - 0
+TT - 2
+AC - 2
+CG - 2
+AG - 2
+GT - 4
+TA - 3
+TC - 4
+CT - 4
+AT - 4
+TG - 4
+GA - 5
+GC - 4
+CA - 5
+3 4 0 2 5 1 6 

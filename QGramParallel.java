@@ -6,7 +6,7 @@ import java.util.concurrent.Semaphore;
 import java.io.*;
 
 public class QGramParallel {
-	static Semaphore semIndex, semKey;
+	static Semaphore semIndex, semKey, semDir;
 	static int sharedPosPointer, nThreads = 2;
 	static String testString, sharedDirPointer, sharedKey;
 	static HashMap<String, Integer> qGramTable;
@@ -14,12 +14,13 @@ public class QGramParallel {
 	static int[] posTable;
 
 	public static void loadFile() throws Exception{
-		File file = new File("data/Ndna_100.txt");
+		File file = new File("data/Ndna_100K.txt");
 		BufferedReader br = new BufferedReader(new FileReader(file));
 
 		String st;
 		while((st = br.readLine()) != null)
 			testString = st;
+		//testString = "ACAGGGCA";
 	}
 
 	public static HashMap<String, Integer> getQGramSubstrings(int q) {
@@ -40,13 +41,14 @@ public class QGramParallel {
 	}
 
 	static class Indexer extends Thread {
-		private Semaphore semMap, semKey;
+		private Semaphore semMap, semKey, semDir;
 		private String testString, threadName;
 		private String testKey;
-		public Indexer(Semaphore semMap, Semaphore semKey, String testString, String threadName) {
+		public Indexer(Semaphore semMap, Semaphore semKey, Semaphore semDir, String testString, String threadName) {
 			super(threadName);
 			this.semMap = semMap;
 			this.semKey = semKey;
+			this.semDir = semDir;
 			this.testString = testString;
 			this.threadName = threadName;
 		}
@@ -67,28 +69,40 @@ public class QGramParallel {
 				semKey.release(); 
 				//System.out.println("Thread Name: " + threadName + " Key - " + testKey);
 
-				// Perform Q-Gram Index
-				for(int i=0;i<testString.length()-2;i++) {
+				try {
 					boolean newPosIndex = true;
-					if(testString.substring(i, i+2).equals(testKey)) {
-						try {
-							System.out.println(threadName + " is waiting for a permit for index."); 
-							semMap.acquire(); // acquire the lock
-							System.out.println(threadName + " gets a permit for index.");
+					//System.out.println(threadName + " is waiting for a permit for directory."); 
+					semDir.acquire(); // acquire the lock
+					//System.out.println(threadName + " gets a permit for dir.");
 
-							sharedPosPointer += 1; // updated position table pointer
-							posTable[sharedPosPointer] = i;
-							if (newPosIndex) {
-								qGramTable.put(testKey, sharedPosPointer);
-								newPosIndex = false;
-							}
-						} catch (InterruptedException exc) { 
-	                    	System.out.println(exc); 
-	                	}
-						System.out.println(threadName + " releases the permit for index.");
-						semMap.release();
+					for(int i=0;i<testString.length()-1;i++) {
+						if(newPosIndex) {
+							qGramTable.put(testKey, sharedPosPointer);
+							newPosIndex = false;
+						}
+
+						if(testString.substring(i, i+2).equals(testKey)) {
+							try {
+								//System.out.println(threadName + " is waiting for a permit for index."); 
+								semMap.acquire(); // acquire the lock
+								//System.out.println(threadName + " gets a permit for index.");
+
+								posTable[sharedPosPointer] = i;
+								if (sharedPosPointer < testString.length()-1)
+									sharedPosPointer += 1; // updated position table pointer
+							} catch (InterruptedException exc) { 
+		                    	System.out.println(exc); 
+		                	}
+							//System.out.println(threadName + " releases the permit for index.");
+							semMap.release();
+						}
 					}
-				}
+
+				} catch (InterruptedException exc) { 
+                    System.out.println(exc); 
+                }
+                //System.out.println(threadName + " releases the permit for dir.");
+				semDir.release();
 			}
 		}
 	}
@@ -100,6 +114,7 @@ public class QGramParallel {
 	
 		semIndex = new Semaphore(1, true);
 		semKey = new Semaphore(1, true);
+		semDir = new Semaphore(1, true);
 		sharedPosPointer = 0;
 		qGramTable = getQGramSubstrings(2);
 		sharedMapIterator = qGramTable.keySet().iterator();
@@ -107,10 +122,12 @@ public class QGramParallel {
 		for(int i=0;i<posTable.length;i++)
 			posTable[i] = 0;
 
-		Indexer indexer1 = new Indexer(semIndex, semKey, testString, "A");
-		Indexer indexer2 = new Indexer(semIndex, semKey, testString, "B");
-		Indexer indexer3 = new Indexer(semIndex, semKey, testString, "C");
-		Indexer indexer4 = new Indexer(semIndex, semKey, testString, "D");
+		Indexer indexer1 = new Indexer(semIndex, semKey, semDir, testString, "A");
+		Indexer indexer2 = new Indexer(semIndex, semKey, semDir, testString, "B");
+		Indexer indexer3 = new Indexer(semIndex, semKey, semDir, testString, "C");
+		Indexer indexer4 = new Indexer(semIndex, semKey, semDir, testString, "D");
+		Indexer indexer5 = new Indexer(semIndex, semKey, semDir, testString, "E");
+		Indexer indexer6 = new Indexer(semIndex, semKey, semDir, testString, "F");
 
 		final long startTime = System.currentTimeMillis();
 		try {
@@ -118,16 +135,20 @@ public class QGramParallel {
 				indexer2.start();
 				indexer3.start();
 				indexer4.start();
+				indexer5.start();
+				indexer6.start();
 
 				indexer1.join();
 				indexer2.join();
 				indexer3.join();
 				indexer4.join();
+				indexer5.join();
+				indexer6.join();
 		} catch(Exception e){}
 		final long endTime = System.currentTimeMillis();
 
 		System.out.println("Time Elapsed: " + (endTime - startTime));
-		System.out.println("Test String = " + testString);
+		//System.out.println("Test String = " + testString);
 		for (String key : qGramTable.keySet())
 			System.out.println(key + " - " + qGramTable.get(key));
 
